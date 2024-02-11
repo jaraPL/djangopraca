@@ -1,0 +1,2 @@
+# djangopraca
+nie działa
