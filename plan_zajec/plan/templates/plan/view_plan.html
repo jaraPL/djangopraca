@@ -1,0 +1,38 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plan zajęć</title>
+</head>
+<body>
+    <h1>Plan zajęć</h1>
+    
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Dzień</th>
+                <th>Godzina</th>
+                <th>Aktywność</th>
+                <th>Akcje</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for entry in plan_list %}
+                <tr>
+                    <td>{{ entry.day }}</td>
+                    <td>{{ entry.time|time:"H:i" }}</td>
+                    <td>{{ entry.activity }}</td>
+                    <td>
+                        <a href="{% url 'edit_plan' entry.id %}">Edytuj</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{% url 'add_plan' %}">Dodaj nowy wpis</a>
+</body>
+</html>
